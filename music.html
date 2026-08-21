@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Qingyang Lyu's research in music intelligence, Transformers, networked performance, and physical sound." />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Music + AI — Qingyang Lyu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="wordmark" href="index.html"><span class="monogram" aria-hidden="true">QL</span><span>Qingyang Lyu</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="index.html">Profile</a><a class="is-current" href="music.html" aria-current="page">Music + AI</a><a href="security.html">Security</a><a href="quant.html">Quantitative Finance</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="page-hero page-shell">
+        <p class="section-label">Current research direction</p>
+        <h1>Music intelligence &amp; Transformer models</h1>
+        <p class="lede">I study representations and learning systems for expressive performance, networked music making, and physically grounded sound—along with evaluations that ask whether a model has learned something musically meaningful.</p>
+        <div class="page-hero-meta"><span>Symbolic music</span><span>Audio</span><span>Multimodal learning</span><span>Music information retrieval</span></div>
+      </header>
+
+      <article class="project" id="tokenization">
+        <div class="page-shell project-grid">
+          <div class="project-copy">
+            <span class="project-number">Project 01 · DAFx 2026 Demonstrations · Accepted</span>
+            <h2>Evaluating tokenization strategies for expressive classical piano performance generation</h2>
+            <p class="project-summary">A controlled study of how symbolic representations encode timing, velocity, beat structure, and sustain pedal for conditional piano generation.</p>
+            <p>The model uses a condition-aware Transformer decoder to generate MIDI tokens from composer and genre context. Six tokenization modes separate representational choices from architecture, and a two-stage MAESTRO-to-ASAP training procedure evaluates their effect on expressive generation.</p>
+            <ul class="project-tags"><li>Transformer decoder</li><li>MIDI tokenization</li><li>MAESTRO</li><li>ASAP</li><li>Expressive performance</li></ul>
+            <div class="resource-links">
+              <a href="assets/papers/lyu-et-al-dafx-2026.pdf" target="_blank">Paper (PDF) ↗</a>
+              <a href="https://github.com/Mike-menny/Evaluating-Tokenization-Strategies" target="_blank" rel="noreferrer">Code ↗</a>
+              <a href="https://huggingface.co/cnmat/MIDI_tokenization_models" target="_blank" rel="noreferrer">Models on Hugging Face ↗</a>
+            </div>
+            <div class="audio-sample">
+              <span>Generated piano sample · note + velocity + pedal representation</span>
+              <audio controls preload="metadata" src="assets/audio/bach-prelude-note-velocity-pedal.wav"></audio>
+            </div>
+          </div>
+          <figure class="figure-panel">
+            <img src="assets/images/music-transformer-architecture.png" width="1274" height="524" alt="Conditional Transformer architecture: composer and genre embeddings condition a 24-layer decoder that predicts the next MIDI token." />
+            <figcaption>Conditional autoregressive architecture. Composer and genre embeddings enter each decoder block through cross-attention; the language-model head predicts the next symbolic event.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <section class="project" id="live-demo">
+        <div class="page-shell project-grid">
+          <div class="project-copy">
+            <span class="project-number">Research prototype</span>
+            <h2>Streaming token generation</h2>
+            <p class="project-summary">The local demonstration exposes token sampling as a live event stream and renders completed MIDI events while the sequence is still being generated.</p>
+            <p>This section is reserved for a short screen recording of the running system. The page structure is already prepared so the recording can be inserted without redesigning the project entry.</p>
+          </div>
+          <div class="demo-placeholder" aria-label="Video placeholder for the streaming MIDI generation demonstration">
+            <div><span class="demo-label">Video forthcoming</span><h3>Live MIDI token generation</h3><p>Screen recording placeholder · real-time token stream, piano roll, and rendered MIDI playback.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <article class="project" id="networked-performance">
+        <div class="page-shell project-grid">
+          <div class="project-copy">
+            <span class="project-number">Project 02 · Lyrekos · Ongoing</span>
+            <h2>Networked music performance</h2>
+            <p class="project-summary">An online performance environment designed to help geographically separated musicians rehearse and perform together.</p>
+            <p>My work considers how a system can follow a live performer, align musical positions, and adapt accompaniment timing through real-time audio stretching. The goal is to preserve musical coordination under changing tempo and network conditions.</p>
+            <ul class="project-tags"><li>Online performance</li><li>Audio alignment</li><li>Time stretching</li><li>Real-time systems</li></ul>
+            <p class="confidential-note">This description intentionally stays at the non-confidential research level. Company-specific algorithms, system parameters, and implementation details are not disclosed.</p>
+          </div>
+          <aside class="figure-panel">
+            <h3>Research scope</h3>
+            <p>Networked Music Performance (NMP) combines real-time audio systems with musical structure: the system must estimate where a performer is, determine how the accompaniment should respond, and make timing corrections without disrupting musical continuity.</p>
+            <p>The project connects music information retrieval with practical performance tooling rather than treating synchronization as a purely technical latency problem.</p>
+          </aside>
+        </div>
+      </article>
+
+      <article class="project" id="physical-sound">
+        <div class="page-shell project-grid">
+          <div class="project-copy">
+            <span class="project-number">Project 03 · Ongoing research</span>
+            <h2>Physical sound synthesis &amp; cross-modal retrieval</h2>
+            <p class="project-summary">Learning compact representations of resonant objects, then connecting physical structure to perceived sound.</p>
+            <p>The synthesis component uses a neural network to predict an eigenspace representation and a Rayleigh–Ritz (RR) solver to recover physically meaningful modes. A complementary contrastive-learning objective aligns material, geometry, impact position, and audio in a shared embedding space.</p>
+            <ul class="project-tags"><li>Physical modeling</li><li>Neural eigenspaces</li><li>Rayleigh–Ritz</li><li>Contrastive learning</li><li>Cross-modal retrieval</li></ul>
+          </div>
+          <aside class="figure-panel">
+            <h3>Two connected questions</h3>
+            <p><strong>Synthesis:</strong> Can a learned eigenspace make physical sound generation efficient while preserving modal structure?</p>
+            <p><strong>Retrieval:</strong> Can a shared representation retrieve sounds from material and shape—or infer physical properties from a recorded impact?</p>
+            <p>The combined project treats sound as evidence of an object’s material, geometry, and excitation rather than as an isolated waveform.</p>
+          </aside>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer"><div class="page-shell"><span>Qingyang (Mike) Lyu</span><a href="index.html">Research profile</a><span>© <span data-year></span></span></div></footer>
+  </body>
+</html>
