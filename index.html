@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Qingyang (Mike) Lyu — research in music intelligence, software security, and quantitative modeling." />
-    <meta name="theme-color" content="#f7f6f2" />
-    <title>Qingyang (Mike) Lyu — Research</title>
+    <meta name="description" content="Qingyang (Mike) Lyu — music intelligence, software security, and quantitative modeling." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Qingyang (Mike) Lyu</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -13,13 +13,10 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="nav-shell">
-        <a class="wordmark" href="index.html" aria-label="Qingyang Lyu, home">
-          <span class="monogram" aria-hidden="true">QL</span>
-          <span>Qingyang Lyu</span>
-        </a>
+        <a class="wordmark" href="index.html">Qingyang (Mike) Lyu</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-          <a class="is-current" href="index.html" aria-current="page">Profile</a>
+          <a class="is-current" href="index.html" aria-current="page">Home</a>
           <a href="music.html">Music + AI</a>
           <a href="security.html">Security</a>
           <a href="quant.html">Quantitative Finance</a>
@@ -27,92 +24,118 @@
       </div>
     </header>
 
-    <main id="main">
-      <section class="profile-hero page-shell">
-        <div class="hero-copy">
-          <p class="section-label">Research profile · Fall 2027 PhD applicant</p>
-          <h1>Qingyang <span>(Mike)</span> Lyu</h1>
-          <p class="hero-intro">
-            I am a senior at The University of Hong Kong and a former UC Berkeley exchange researcher at
-            <a href="https://cnmat.berkeley.edu/" target="_blank" rel="noreferrer">CNMAT</a>. My current research
-            centers on music and audio intelligence: symbolic representations, Transformer models, multimodal
-            learning, and evaluations that measure musical understanding rather than benchmark familiarity.
-          </p>
-          <div class="link-row">
-            <a class="text-link" href="mailto:mikelyu@berkeley.edu">Email</a>
-            <a class="text-link" href="https://github.com/Mike-menny" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="text-link" href="https://www.linkedin.com/in/qingyang-lyu-05180033b/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="text-link" href="https://youtu.be/u3phIVxGdA0" target="_blank" rel="noreferrer">Piano performance</a>
-          </div>
-        </div>
-        <aside class="profile-facts" aria-label="Academic profile">
-          <div><span>Current focus</span><strong>Music intelligence &amp; multimodal models</strong></div>
-          <div><span>Education</span><strong>HKU Statistics · CS minor</strong></div>
-          <div><span>Exchange research</span><strong>UC Berkeley · CNMAT</strong></div>
-          <div><span>Selected result</span><strong>DAFx 2026 Demonstrations · accepted</strong></div>
-        </aside>
+    <main id="main" class="page-shell">
+      <section class="bio" aria-labelledby="name">
+        <h1 id="name">Qingyang (Mike) Lyu</h1>
+        <p class="affiliation">BSc Statistics, The University of Hong Kong · UC Berkeley exchange researcher</p>
+        <p>
+          I am a senior at <a href="https://www.hku.hk/" target="_blank" rel="noreferrer">The University of Hong Kong</a>,
+          majoring in Statistics with a minor in Computer Science. I spent the 2025–2026 academic year at the
+          University of California, Berkeley, where I conducted research at
+          <a href="https://cnmat.berkeley.edu/" target="_blank" rel="noreferrer">CNMAT</a>. My current research focuses on
+          music and audio intelligence, including symbolic music representations, Transformer models, and multimodal evaluation.
+        </p>
+        <p class="inline-links">
+          <a href="mailto:mikelyu@berkeley.edu">Email</a>
+          <a href="https://github.com/Mike-menny" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/qingyang-lyu-05180033b/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://youtu.be/u3phIVxGdA0" target="_blank" rel="noreferrer">Piano performance</a>
+        </p>
       </section>
 
-      <section class="section page-shell" aria-labelledby="areas-title">
-        <div class="section-heading compact-heading">
-          <p class="section-label">Research areas</p>
-          <h2 id="areas-title">Three distinct bodies of work</h2>
-          <p>Each area has its own questions, methods, and project record. Music intelligence is my present PhD direction.</p>
-        </div>
-        <div class="area-grid">
-          <a class="area-card area-card-primary" href="music.html">
-            <span class="card-index">01</span><p class="card-kicker">Current direction</p>
-            <h3>Music + Transformers</h3>
-            <p>Expressive piano generation, networked performance, physical sound synthesis, and cross-modal retrieval.</p>
-            <span class="card-action">View research →</span>
-          </a>
-          <a class="area-card" href="security.html">
-            <span class="card-index">02</span><p class="card-kicker">Software systems</p>
-            <h3>Security &amp; Fuzzing</h3>
-            <p>Reinforcement learning and static dataflow analysis for effective C/C++ fuzz-driver generation.</p>
-            <span class="card-action">View research →</span>
-          </a>
-          <a class="area-card" href="quant.html">
-            <span class="card-index">03</span><p class="card-kicker">Earlier work</p>
-            <h3>Quantitative Finance</h3>
-            <p>Statistical arbitrage, time-series forecasting, model comparison, and fundamental valuation.</p>
-            <span class="card-action">View research →</span>
-          </a>
+      <section aria-labelledby="interests-title">
+        <h2 id="interests-title">Research interests</h2>
+        <ul class="plain-list">
+          <li>Expressive piano performance generation and MIDI tokenization</li>
+          <li>Music and audio modeling with Transformers</li>
+          <li>Multimodal learning and evaluation for musical intelligence</li>
+          <li>Networked music performance and physical sound synthesis</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="areas-title">
+        <h2 id="areas-title">Research areas</h2>
+        <div class="research-index">
+          <a href="music.html"><strong>Music + AI</strong><span>Expressive piano generation, networked performance, and physical sound synthesis.</span></a>
+          <a href="security.html"><strong>Software Security</strong><span>Reinforcement learning and static dataflow analysis for C/C++ fuzz-driver generation.</span></a>
+          <a href="quant.html"><strong>Quantitative Finance</strong><span>Statistical arbitrage, stock forecasting, and discounted cash-flow analysis.</span></a>
         </div>
       </section>
 
-      <section class="section page-shell two-column" aria-labelledby="news-title">
-        <div class="section-heading"><p class="section-label">Selected work</p><h2 id="news-title">Research notes</h2></div>
-        <div class="entry-list">
-          <article class="entry-row">
-            <div><span>2026</span><span class="status status-accepted">Accepted</span></div>
-            <h3>Evaluating Tokenization Strategies for Expressive Classical Piano Performance Generation</h3>
-            <p>First-author demonstration paper, DAFx 2026.</p><a href="music.html#tokenization">Project and paper →</a>
+      <section aria-labelledby="publications-title">
+        <h2 id="publications-title">Publications and manuscripts</h2>
+        <div class="record-list">
+          <article class="record">
+            <div class="record-date">2026</div>
+            <div>
+              <h3>Evaluating Tokenization Strategies for Expressive Classical Piano Performance Generation</h3>
+              <p><strong>Qingyang Lyu</strong>, Brian Cruz, Jeremy Wagner, and Carmine-Emanuele Cella.</p>
+              <p>Proceedings of the 29th International Conference on Digital Audio Effects (DAFx-26), Demonstrations. Accepted.</p>
+              <p class="record-links">
+                <a href="assets/papers/lyu-et-al-dafx-2026.pdf" target="_blank">Paper</a>
+                <a href="https://github.com/Mike-menny/Evaluating-Tokenization-Strategies" target="_blank" rel="noreferrer">Code</a>
+                <a href="https://huggingface.co/cnmat/MIDI_tokenization_models" target="_blank" rel="noreferrer">Models</a>
+              </p>
+            </div>
           </article>
-          <article class="entry-row">
-            <div><span>2027</span><span class="status">Under review</span></div>
-            <h3>RLDriver: Reinforcement Learning for Dataflow-Aware Fuzz Driver Generation</h3>
-            <p>First-author manuscript submitted to ICSE 2027.</p><a href="security.html">Methods and findings →</a>
-          </article>
-          <article class="entry-row">
-            <div><span>Ongoing</span></div>
-            <h3>Physical sound synthesis and cross-modal retrieval</h3>
-            <p>Learning compact physical representations across material, geometry, impact position, and sound.</p>
-            <a href="music.html#physical-sound">Project overview →</a>
+          <article class="record">
+            <div class="record-date">Under review</div>
+            <div>
+              <h3>RLDriver: Reinforcement Learning for Dataflow-Aware Fuzz Driver Generation</h3>
+              <p>First-author manuscript submitted to ICSE 2027.</p>
+              <p class="record-links"><a href="security.html">Project details and detected bugs</a></p>
+            </div>
           </article>
         </div>
       </section>
 
-      <section class="section page-shell two-column" aria-labelledby="education-title">
-        <div class="section-heading"><p class="section-label">Background</p><h2 id="education-title">Education</h2></div>
-        <div class="education-list">
-          <article><div><h3>The University of Hong Kong</h3><time>2023–2027</time></div><p>BSc in Statistics, minor in Computer Science · GPA 3.97/4.3</p></article>
-          <article><div><h3>University of California, Berkeley</h3><time>2025–2026</time></div><p>Academic-year exchange · GPA 3.89/4.0 · Research at CNMAT</p></article>
-          <article><div><h3>Honors</h3><time>2024–2026</time></div><p>Dean’s Honours List; HKU Alumni Prize; university and chamber scholarships.</p></article>
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">Research and technical projects</h2>
+        <div class="record-list compact-records">
+          <article class="record"><div class="record-date">Feb. 2026–present</div><div><h3>Tokenization Strategies for Expressive Piano Performance</h3><p>First-author DAFx-26 demonstration paper. MLP condition encoder and Transformer decoder trained on MAESTRO and ASAP.</p></div></article>
+          <article class="record"><div class="record-date">Jun. 2026–present</div><div><h3>Latency Killer Agent in Online Rehearsals · Lyrekos</h3><p>Consultant. Networked Music Performance, music information retrieval, audio alignment, and time stretching.</p></div></article>
+          <article class="record"><div class="record-date">Ongoing</div><div><h3>Physical Sound Synthesis and Cross-Modal Retrieval</h3><p>Neural eigenspace prediction with a Rayleigh–Ritz solver; contrastive retrieval across material, shape, impact position, and sound.</p></div></article>
+          <article class="record"><div class="record-date">Jun. 2025–present</div><div><h3>RL-Tuning on Fuzz Driver Generation</h3><p>Customized GRPO pipeline for Qwen models; static analysis for control-flow graphs and API dependency graphs.</p></div></article>
+          <article class="record"><div class="record-date">Mar. 2026</div><div><h3>Retrieval-Augmented Generation System</h3><p>Hybrid dense-vector and sparse-vector retrieval. <a href="https://github.com/HLXY-420/cs288-sp26-a3" target="_blank" rel="noreferrer">Code</a>.</p></div></article>
+          <article class="record"><div class="record-date">Apr. 2025</div><div><h3>Robot Arm Challenge</h3><p>YOLO oriented-bounding-box detection, robotic-arm control, and coordinate transformation.</p></div></article>
         </div>
+      </section>
+
+      <section aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="record-list compact-records">
+          <article class="record">
+            <div class="record-date">2023–2027</div>
+            <div><h3>The University of Hong Kong</h3><p>BSc in Statistics; minor in Computer Science. GPA: 3.97/4.3.</p><p>Selected coursework: Linear Regression (A+), Numerical Analysis (A+), Python (A+), C++ (B+).</p></div>
+          </article>
+          <article class="record">
+            <div class="record-date">2025–2026</div>
+            <div><h3>University of California, Berkeley</h3><p>Academic-year exchange. GPA: 3.89/4.0.</p><p>Selected coursework: Music Theory (A), Time-Series Analysis (A), Stochastic Processes (A-), Advanced NLP (A), Machine Learning (A).</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="awards-title">
+        <h2 id="awards-title">Awards</h2>
+        <ul class="dated-list">
+          <li><span>2024, 2025</span>Dean's Honours List, HKU</li>
+          <li><span>2025, 2026</span>Hong Kong University Alumni Prize, HKU</li>
+          <li><span>2025</span>Hong Kong Chiu Chow Chamber of Commerce Scholarship, HKU</li>
+          <li><span>2025</span>Ho Kam Chiu Lo Lai Ching Memorial Scholarship, HKU</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills and activities</h2>
+        <dl class="fact-list">
+          <div><dt>Machine learning</dt><dd>PyTorch, Transformers, vLLM</dd></div>
+          <div><dt>Music programming</dt><dd>Librosa, Mido</dd></div>
+          <div><dt>Music</dt><dd>Piano performance and composition</dd></div>
+          <div><dt>Activities</dt><dd>HKU Piano Society; person in charge for four musical events at R.C. Lee Hall</dd></div>
+        </dl>
       </section>
     </main>
 
-    <footer class="site-footer"><div class="page-shell"><span>Qingyang (Mike) Lyu</span><span>Hong Kong · Berkeley</span><span>© <span data-year></span></span></div></footer>
+    <footer class="site-footer"><div class="page-shell">Qingyang (Mike) Lyu · <span data-year></span></div></footer>
   </body>
 </html>

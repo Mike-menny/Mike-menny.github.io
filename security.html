@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="RLDriver and Qingyang Lyu's research on reinforcement learning for dataflow-aware fuzz-driver generation." />
-    <meta name="theme-color" content="#f7f6f2" />
-    <title>Security &amp; Fuzzing — Qingyang Lyu</title>
+    <meta name="description" content="RLDriver: reinforcement learning for dataflow-aware fuzz-driver generation." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Security — Qingyang Lyu</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -13,81 +13,83 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="nav-shell">
-        <a class="wordmark" href="index.html"><span class="monogram" aria-hidden="true">QL</span><span>Qingyang Lyu</span></a>
+        <a class="wordmark" href="index.html">Qingyang (Mike) Lyu</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-          <a href="index.html">Profile</a><a href="music.html">Music + AI</a><a class="is-current" href="security.html" aria-current="page">Security</a><a href="quant.html">Quantitative Finance</a>
+          <a href="index.html">Home</a><a href="music.html">Music + AI</a><a class="is-current" href="security.html" aria-current="page">Security</a><a href="quant.html">Quantitative Finance</a>
         </nav>
       </div>
     </header>
 
-    <main id="main">
-      <header class="page-hero page-shell">
-        <p class="section-label">Software security research</p>
-        <h1>Reinforcement learning for dataflow-aware fuzz-driver generation</h1>
-        <p class="lede">RLDriver turns fuzz-driver quality into a structured reward environment, aligning a code model with the program properties that determine whether library behavior is actually reachable.</p>
-        <div class="page-hero-meta"><span>First-author manuscript</span><span>Submitted to ICSE 2027 · under review</span><span>C/C++ libraries</span><span>Static analysis + GRPO</span></div>
+    <main id="main" class="page-shell">
+      <header class="page-header">
+        <p class="eyebrow">First-author manuscript · Submitted to ICSE 2027 · Under review</p>
+        <h1>RLDriver: Reinforcement Learning for Dataflow-Aware Fuzz Driver Generation</h1>
+        <p class="summary">RLDriver statically analyzes generated fuzz drivers along four dataflow dimensions and uses a customized Group Relative Policy Optimization procedure to fine-tune the generator.</p>
+        <div class="page-meta"><span>Qwen2.5-Coder-32B</span><span>GRPO</span><span>Static dataflow analysis</span><span>15 C libraries</span></div>
       </header>
 
-      <section class="project">
-        <div class="page-shell">
-          <div class="project-grid">
-            <div class="project-copy">
-              <span class="project-number">RLDriver · System overview</span>
-              <h2>From offline alignment to downstream fuzzing</h2>
-              <p class="project-summary">Next-token prediction does not directly optimize whether a generated driver invokes the requested APIs, explores related behavior, composes stateful calls, or exposes those calls to fuzzer input.</p>
-              <p>RLDriver builds a library-side API dependency graph, generates task-conditioned drivers, analyzes their realized dataflow, and uses four qualitative rewards in a customized GRPO loop. The aligned model then serves as the generation policy in a conventional coverage-guided fuzzing workflow.</p>
-            </div>
-            <figure class="figure-panel">
-              <img src="assets/images/security-workflow.png" width="2092" height="653" alt="RLDriver workflow showing offline reinforcement-learning alignment followed by downstream library fuzzing." />
-              <figcaption>Overall workflow: dataflow-aware rewards shape the policy during offline alignment; library-specific knowledge remains in the prompt during downstream fuzzing.</figcaption>
-            </figure>
+      <section class="project-entry">
+        <div class="project-layout">
+          <div>
+            <h2>Method</h2>
+            <p>RLDriver extracts semantic information from library headers, constructs task-conditioned prompts, samples candidate drivers, and evaluates each candidate using static program analysis. The resulting bounded rewards are used for offline policy alignment. At inference time, reward computation and GRPO are disabled.</p>
+            <dl class="definition-list">
+              <div><dt>Target API alignment</dt><dd>Whether the driver invokes the APIs requested by the task.</dd></div>
+              <div><dt>API-surface exploration</dt><dd>How broadly the driver exercises related public APIs.</dd></div>
+              <div><dt>Stateful API interaction</dt><dd>Whether API calls form producer–consumer dependency chains.</dd></div>
+              <div><dt>Fuzzer-input propagation</dt><dd>How many API calls receive values derived from fuzzer input.</dd></div>
+            </dl>
           </div>
-
-          <div class="method-grid" aria-label="Four dataflow-aware reward dimensions">
-            <article class="method-card"><h3>Target API alignment</h3><p>Measures whether the generated driver invokes the APIs requested by the task.</p></article>
-            <article class="method-card"><h3>API-surface exploration</h3><p>Rewards broader use of relevant public APIs around the target behavior.</p></article>
-            <article class="method-card"><h3>Stateful interaction</h3><p>Checks whether API calls form a connected producer–consumer dataflow rather than isolated statements.</p></article>
-            <article class="method-card"><h3>Fuzzer-input propagation</h3><p>Measures how many API calls receive values derived from the fuzzer’s input bytes.</p></article>
-          </div>
-
-          <figure class="figure-panel figure-wide">
-            <img src="assets/images/security-quality-model.png" width="2293" height="885" alt="Four-step RLDriver quality model from library semantic modeling to dataflow-aware rewards." />
-            <figcaption>Driver-quality modeling: the analyzer compares the library’s potential API relations with the dataflow and input influence realized by a generated fuzz driver.</figcaption>
+          <figure class="figure">
+            <img src="assets/images/security-workflow.png" width="2092" height="653" alt="RLDriver offline alignment and downstream library-fuzzing workflow." />
+            <figcaption>Overall workflow: offline reinforcement-learning alignment followed by deployment of the aligned model in a coverage-guided fuzzing loop.</figcaption>
           </figure>
-
-          <div class="result-strip" aria-label="Evaluation highlights">
-            <div><strong>15</strong><span>real-world libraries evaluated</span></div>
-            <div><strong>9 / 15</strong><span>libraries with the highest downstream code coverage</span></div>
-            <div><strong>12</strong><span>bugs detected across nine libraries</span></div>
-          </div>
         </div>
       </section>
 
-      <section class="project" id="findings">
-        <div class="page-shell">
-          <div class="findings-header">
-            <div><p class="section-label">Empirical findings</p><h2>Bug findings ledger</h2></div>
-            <p>Twelve defects were exposed during real-world library fuzzing. Each entry links to the available upstream issue, review, patch, or source reference. “Previously fixed” means the reproduced bug exists in the evaluated historical version but had already been corrected upstream.</p>
+      <section class="project-entry">
+        <div class="project-layout">
+          <div>
+            <h2>Evaluation</h2>
+            <p>The evaluation covers 15 real-world C libraries with 1,772 public APIs and 601,690 lines of code. Ten libraries are used for GRPO alignment and five are held out for cross-library evaluation.</p>
+            <ul class="result-list">
+              <li>RLDriver-32B achieves the highest aggregated reward on 13 of 15 libraries, including all five held-out libraries.</li>
+              <li>On held-out libraries, its aggregated reward is 1.49, 43.3% above the unaligned Qwen2.5-Coder-32B baseline.</li>
+              <li>When integrated with PromptFuzz, it achieves the highest code coverage on 9 of 15 libraries.</li>
+              <li>Twenty-four-hour fuzzing campaigns detect 12 bugs across nine libraries.</li>
+            </ul>
           </div>
-          <div class="bug-grid">
-            <article class="bug-card"><span class="bug-id">01</span><span class="library">libmagic</span><h3>Heap use-after-free</h3><p class="location">print.c · file_magwarn</p><footer><span class="bug-status">Fixed</span><a href="https://bugs.astron.com/view.php?id=772" target="_blank" rel="noreferrer">PR / 772 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">02</span><span class="library">libmagic</span><h3>Integer overflow</h3><p class="location">funcs.c · file_checkfield</p><footer><span class="bug-status">Fixed</span><a href="https://github.com/file/file/commit/c69366d" target="_blank" rel="noreferrer">Fix commit ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">03</span><span class="library">libmagic</span><h3>SEGV · out-of-bounds read</h3><p class="location">softmagic.c · mget</p><footer><span class="bug-status prior">Previously fixed</span><a href="https://bugs.astron.com/view.php?id=774" target="_blank" rel="noreferrer">Issue 774 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">04</span><span class="library">libpng</span><h3>Heap buffer overflow</h3><p class="location">pngrutil.c · png_combine_row</p><footer><span class="bug-status waiting">Awaiting upstream</span><a href="https://github.com/pnggroup/libpng/issues/867" target="_blank" rel="noreferrer">Issue 867 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">05</span><span class="library">curl</span><h3>Integer overflow</h3><p class="location">tftp.c · tftp_set_timeouts</p><footer><span class="bug-status">Fixed</span><a href="https://github.com/curl/curl/issues/21782" target="_blank" rel="noreferrer">Issue 21782 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">06</span><span class="library">libvpx</span><h3>Heap buffer overflow</h3><p class="location">vp9_iface_common.c · yuvconfig2image</p><footer><span class="bug-status">Fixed</span><a href="https://android-review.googlesource.com/c/platform/external/libvpx/+/517413744" target="_blank" rel="noreferrer">Review 517413744 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">07</span><span class="library">libtiff</span><h3>Assertion failure</h3><p class="location">tif_dirread.c · _TIFFFetchStrileValue</p><footer><span class="bug-status">Fixed</span><a href="https://gitlab.com/libtiff/libtiff/-/issues/858" target="_blank" rel="noreferrer">Issue 858 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">08</span><span class="library">libjpeg-turbo</span><h3>Signed integer overflow</h3><p class="location">turbojpeg.c · tj3YUVBufSize</p><footer><span class="bug-status">Fixed</span><a href="https://github.com/libjpeg-turbo/libjpeg-turbo/issues/896" target="_blank" rel="noreferrer">Issue 896 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">09</span><span class="library">SQLite</span><h3>UBSan function-type mismatch</h3><p class="location">sqlite3.c · sqlite3VdbeDeleteAuxData</p><footer><span class="bug-status prior">Previously fixed</span><a href="https://sqlite.org/src/info/e35fc302c3" target="_blank" rel="noreferrer">Source reference ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">10</span><span class="library">zlib</span><h3>UBSan null-pointer arithmetic</h3><p class="location">gzwrite.c · gz_vacate</p><footer><span class="bug-status prior">Previously fixed</span><a href="https://github.com/madler/zlib/issues/1214" target="_blank" rel="noreferrer">Issue 1214 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">11</span><span class="library">zstd</span><h3>Heap buffer overflow</h3><p class="location">fastcover.c · FASTCOVER_selectSegment</p><footer><span class="bug-status prior">Previously fixed</span><a href="https://github.com/facebook/zstd/issues/4499" target="_blank" rel="noreferrer">Issue 4499 ↗</a></footer></article>
-            <article class="bug-card"><span class="bug-id">12</span><span class="library">libmagic</span><h3>SIGABRT</h3><p class="location">apprentice.c · file_magic_strength</p><footer><span class="bug-status waiting">Awaiting upstream</span><a href="https://bugs.astron.com/view.php?id=782" target="_blank" rel="noreferrer">Issue 782 ↗</a></footer></article>
+          <figure class="figure">
+            <img src="assets/images/security-quality-model.png" width="2293" height="885" alt="RLDriver quality model based on target APIs, API dependency graphs, driver dataflow, and fuzzer-input propagation." />
+            <figcaption>Driver-quality modeling from library semantic analysis to the four dataflow-aware reward dimensions.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-entry" id="findings">
+        <h2>Detected bugs</h2>
+        <p class="ledger-note">Twelve bugs were detected across nine libraries. Ten were confirmed or already fixed upstream; two remain under review. Each bug is listed on a separate row.</p>
+        <div class="bug-ledger-wrap" role="region" aria-label="Detected bug ledger" tabindex="0">
+          <div class="bug-ledger">
+            <div class="bug-head" aria-hidden="true"><span>No.</span><span>Library</span><span>Bug type</span><span>Location</span><span>Status</span><span>Reference</span></div>
+            <div class="bug-entry"><span class="num">01</span><span class="library">libmagic</span><span>Heap use-after-free</span><span class="location">print.c:288 · file_magwarn</span><span class="status">Confirmed &amp; fixed</span><a href="https://bugs.astron.com/view.php?id=772" target="_blank" rel="noreferrer">PR/772</a></div>
+            <div class="bug-entry"><span class="num">02</span><span class="library">libmagic</span><span>Integer overflow</span><span class="location">funcs.c:81 · file_checkfield</span><span class="status">Confirmed &amp; fixed</span><a href="https://github.com/file/file/commit/c69366d" target="_blank" rel="noreferrer">c69366d</a></div>
+            <div class="bug-entry"><span class="num">03</span><span class="library">libmagic</span><span>SEGV (OOB read)</span><span class="location">softmagic.c:1698 · mget</span><span class="status">Fixed previously</span><a href="https://bugs.astron.com/view.php?id=774" target="_blank" rel="noreferrer">Issue 774</a></div>
+            <div class="bug-entry"><span class="num">04</span><span class="library">libpng</span><span>Heap buffer overflow</span><span class="location">pngrutil.c:3618 · png_combine_row</span><span class="status">Under review</span><a href="https://github.com/pnggroup/libpng/issues/867" target="_blank" rel="noreferrer">#867</a></div>
+            <div class="bug-entry"><span class="num">05</span><span class="library">curl</span><span>Integer overflow</span><span class="location">tftp.c:171 · tftp_set_timeouts</span><span class="status">Confirmed &amp; fixed</span><a href="https://github.com/curl/curl/issues/21782" target="_blank" rel="noreferrer">#21782</a></div>
+            <div class="bug-entry"><span class="num">06</span><span class="library">libvpx</span><span>Heap buffer overflow</span><span class="location">vp9_iface_common.c:41 · yuvconfig2image</span><span class="status">Confirmed &amp; fixed</span><a href="https://android-review.googlesource.com/c/platform/external/libvpx/+/517413744" target="_blank" rel="noreferrer">517413744</a></div>
+            <div class="bug-entry"><span class="num">07</span><span class="library">libtiff</span><span>Assertion failure</span><span class="location">tif_dirread.c:8385 · _TIFFFetchStrileValue</span><span class="status">Confirmed &amp; fixed</span><a href="https://gitlab.com/libtiff/libtiff/-/issues/858" target="_blank" rel="noreferrer">#858</a></div>
+            <div class="bug-entry"><span class="num">08</span><span class="library">libjpeg-turbo</span><span>Signed integer overflow</span><span class="location">turbojpeg.c:1041 · tj3YUVBufSize</span><span class="status">Confirmed &amp; fixed</span><a href="https://github.com/libjpeg-turbo/libjpeg-turbo/issues/896" target="_blank" rel="noreferrer">#896</a></div>
+            <div class="bug-entry"><span class="num">09</span><span class="library">sqlite3</span><span>UBSan function-type mismatch</span><span class="location">sqlite3.c:87642 · sqlite3VdbeDeleteAuxData</span><span class="status">Fixed previously</span><a href="https://sqlite.org/src/info/e35fc302c3" target="_blank" rel="noreferrer">e35fc302c3</a></div>
+            <div class="bug-entry"><span class="num">10</span><span class="library">zlib</span><span>UBSan null-pointer arithmetic</span><span class="location">gzwrite.c:386 · gz_vacate</span><span class="status">Fixed previously</span><a href="https://github.com/madler/zlib/issues/1214" target="_blank" rel="noreferrer">#1214</a></div>
+            <div class="bug-entry"><span class="num">11</span><span class="library">zstd</span><span>Heap buffer overflow</span><span class="location">fastcover.c:174 · FASTCOVER_selectSegment</span><span class="status">Fixed previously</span><a href="https://github.com/facebook/zstd/issues/4499" target="_blank" rel="noreferrer">#4499</a></div>
+            <div class="bug-entry"><span class="num">12</span><span class="library">libmagic</span><span>SIGABRT</span><span class="location">apprentice.c:1118 · file_magic_strength</span><span class="status">Under review</span><a href="https://bugs.astron.com/view.php?id=782" target="_blank" rel="noreferrer">Issue 782</a></div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><div class="page-shell"><span>Qingyang (Mike) Lyu</span><a href="index.html">Research profile</a><span>© <span data-year></span></span></div></footer>
+    <footer class="site-footer"><div class="page-shell">Qingyang (Mike) Lyu · <a href="index.html">Home</a> · <span data-year></span></div></footer>
   </body>
 </html>
