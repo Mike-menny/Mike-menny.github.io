@@ -6,7 +6,7 @@
     <meta name="description" content="Qingyang Lyu's research in expressive piano generation, networked music performance, and physical sound synthesis." />
     <meta name="theme-color" content="#ffffff" />
     <title>Music + AI — Qingyang Lyu</title>
-    <link rel="stylesheet" href="styles.css?v=20260822" />
+    <link rel="stylesheet" href="styles.css?v=20260822b" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -26,6 +26,7 @@
         <p class="eyebrow">Current research direction</p>
         <h1>Music intelligence and Transformer models</h1>
         <p class="summary">Symbolic music representations, expressive piano performance generation, networked music performance, physical sound synthesis, and multimodal retrieval.</p>
+        <p class="resource-line"><a href="https://youtu.be/u3phIVxGdA0" target="_blank" rel="noreferrer">Music composition</a></p>
       </header>
 
       <article class="project-entry" id="tokenization">
@@ -51,19 +52,34 @@
             <figcaption>Model architecture from the DAFx-26 paper. MIDI tokens pass through 24 pre-normalized decoder layers with causal self-attention and cross-attention over composer and genre conditions.</figcaption>
           </figure>
         </div>
+        <figure class="video-figure">
+          <video controls playsinline preload="metadata" poster="assets/images/midi-tokenization-demo.jpg">
+            <source src="assets/videos/midi-tokenization-demo.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>MIDI tokenization demo: composer- and genre-conditioned generation, MIDI playback, and piano-roll visualization.</figcaption>
+        </figure>
       </article>
 
       <article class="project-entry" id="networked-performance">
-        <p class="project-meta">Lyrekos · Consultant · Jun. 2026–present</p>
-        <h2>Latency Killer Agent in Online Rehearsals</h2>
+        <p class="project-meta">Consulting project · Lyrekos company · Jun. 2026–present</p>
+        <h2>Networked Music Performance Consulting for Lyrekos</h2>
         <div class="content">
-          <p class="project-summary">Networked Music Performance for online rehearsal and performance.</p>
-          <p>My work covers music information retrieval, real-time audio alignment, and audio time stretching. Company-specific algorithms and implementation details are not disclosed.</p>
+          <p class="project-summary">I serve as a consultant to Lyrekos on Networked Music Performance.</p>
+          <p>My consulting work covers music information retrieval, real-time audio alignment, and audio time stretching for online rehearsal. Company-specific algorithms and implementation details are not disclosed.</p>
+          <p>The demo below shows one feature developed within this consulting work: beat labeling and beat-based alignment of two audio tracks in Beat Studio. It does not describe the full Lyrekos product.</p>
         </div>
+        <figure class="video-figure">
+          <video controls playsinline preload="metadata" poster="assets/images/lyrekos-beat-alignment-feature.jpg">
+            <source src="assets/videos/lyrekos-beat-alignment-feature.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>Feature demo: per-track beat labeling followed by beat-based alignment. This is one component of the Lyrekos consulting work.</figcaption>
+        </figure>
       </article>
 
       <article class="project-entry" id="physical-sound">
-        <p class="project-meta">Ongoing research</p>
+        <p class="project-meta">Ongoing research · Advisor: <a href="https://www.graphics.pku.edu.cn/xztd/jgfaculty/lisheng/index.htm" target="_blank" rel="noreferrer">Prof. Sheng Li</a>, Peking University</p>
         <h2>Physical Sound Synthesis and Cross-Modal Retrieval</h2>
         <div class="content">
           <p class="project-summary">Physical sound synthesis through neural eigenspace prediction and a Rayleigh–Ritz solver.</p>
