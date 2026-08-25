@@ -6,7 +6,7 @@
     <meta name="description" content="Qingyang Lyu's research in expressive piano generation, networked music performance, and physical sound synthesis." />
     <meta name="theme-color" content="#ffffff" />
     <title>Music + AI — Qingyang Lyu</title>
-    <link rel="stylesheet" href="styles.css?v=20260822f" />
+    <link rel="stylesheet" href="styles.css?v=20260825a" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -26,17 +26,21 @@
         <p class="eyebrow">Current research direction</p>
         <h1>Music intelligence and Transformer models</h1>
         <p class="summary">Symbolic music representations, expressive piano performance generation, networked music performance, physical sound synthesis, and multimodal retrieval.</p>
-        <p class="resource-line"><a href="https://youtu.be/u3phIVxGdA0" target="_blank" rel="noreferrer">Music composition</a></p>
+        <p class="resource-line music-links">
+          <a href="https://youtu.be/u3phIVxGdA0" target="_blank" rel="noreferrer">Music composition</a>
+          <a href="https://www.youtube.com/watch?v=dW9jmmp1Yes" target="_blank" rel="noreferrer">Band performance</a>
+          <a href="https://www.youtube.com/watch?v=FKxOid_UI3A" target="_blank" rel="noreferrer">Piano performance</a>
+          <a href="https://www.bilibili.com/video/BV17C4y1x7cS/" target="_blank" rel="noreferrer">High-school orchestra</a>
+        </p>
       </header>
 
       <article class="project-entry" id="tokenization">
-        <div class="project-layout">
+        <div class="project-layout project-layout-with-media">
           <div>
-            <p class="project-meta">DAFx-26 Demonstrations · Accepted · First author</p>
+            <p class="project-meta">DAFx-26 Demonstrations · Accepted · First author · Feb.–Jun. 2026</p>
             <h2>Evaluating Tokenization Strategies for Expressive Classical Piano Performance Generation</h2>
             <p class="project-summary">A systematic evaluation of six symbolic representations that add velocity, beat annotations, and sustain pedal to a note-only representation.</p>
             <p>The model is a decoder-only Transformer with 24 layers. Composer and genre embeddings condition each layer through cross-attention. Training uses MAESTRO pretraining followed by ASAP fine-tuning.</p>
-            <p>On the ASAP test set, Note+Velocity+Pedal and Full obtain mean Fréchet Audio Distance scores of 1.76 and 1.97, compared with 3.10 for Note. Velocity and pedal are most useful jointly; beat tokens have mixed category-dependent effects.</p>
             <p class="resource-line">
               <a href="assets/papers/lyu-et-al-dafx-2026.pdf" target="_blank">Paper</a>
               <a href="https://github.com/Mike-menny/Evaluating-Tokenization-Strategies" target="_blank" rel="noreferrer">Code</a>
@@ -47,39 +51,46 @@
               <audio controls preload="metadata" src="assets/audio/bach-prelude-note-velocity-pedal.wav"></audio>
             </div>
           </div>
-          <figure class="figure">
-            <img src="assets/images/music-transformer-architecture.png" width="1274" height="524" alt="Conditional Transformer architecture with composer and genre embeddings, 24 decoder layers, and a next-token language-model head." />
-            <figcaption>Model architecture from the DAFx-26 paper. MIDI tokens pass through 24 pre-normalized decoder layers with causal self-attention and cross-attention over composer and genre conditions.</figcaption>
-          </figure>
+          <div class="project-media">
+            <figure class="figure">
+              <img src="assets/images/music-transformer-architecture.png" width="1274" height="524" alt="Conditional Transformer architecture with composer and genre embeddings, 24 decoder layers, and a next-token language-model head." />
+              <figcaption>Model architecture from the DAFx-26 paper. MIDI tokens pass through 24 pre-normalized decoder layers with causal self-attention and cross-attention over composer and genre conditions.</figcaption>
+            </figure>
+            <figure class="video-figure">
+              <video controls playsinline preload="metadata" poster="assets/images/midi-tokenization-demo.jpg">
+                <source src="assets/videos/midi-tokenization-demo.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <figcaption>MIDI tokenization demo: composer- and genre-conditioned generation, MIDI playback, and piano-roll visualization.</figcaption>
+            </figure>
+          </div>
         </div>
-        <figure class="video-figure">
-          <video controls playsinline preload="metadata" poster="assets/images/midi-tokenization-demo.jpg">
-            <source src="assets/videos/midi-tokenization-demo.mp4" type="video/mp4" />
-            Your browser does not support embedded video.
-          </video>
-          <figcaption>MIDI tokenization demo: composer- and genre-conditioned generation, MIDI playback, and piano-roll visualization.</figcaption>
-        </figure>
       </article>
 
       <article class="project-entry" id="networked-performance">
-        <p class="project-meta">Consulting project · Lyrekos company · Jun. 2026–present</p>
-        <h2>Networked Music Performance Consulting for Lyrekos</h2>
-        <div class="content">
-          <p class="project-summary">I serve as a consultant to Lyrekos on Networked Music Performance.</p>
-          <p>My consulting work covers music information retrieval, real-time audio alignment, and audio time stretching for online rehearsal. Company-specific algorithms and implementation details are not disclosed.</p>
-          <p>The demo below shows one feature developed within this consulting work: beat labeling and beat-based alignment of two audio tracks in Beat Studio. It does not describe the full Lyrekos product.</p>
+        <div class="project-layout project-layout-with-media">
+          <div>
+            <p class="project-meta">Consulting project · Lyrekos company · Jun.–Aug. 2026</p>
+            <h2>Networked Music Performance Consulting for Lyrekos</h2>
+            <div class="content">
+              <p class="project-summary">I serve as a consultant to Lyrekos on Networked Music Performance.</p>
+              <p>My consulting work covers music information retrieval, real-time audio alignment, and audio time stretching for online rehearsal. Company-specific algorithms and implementation details are not disclosed.</p>
+              <p>The demo below shows one feature developed within this consulting work: beat labeling and beat-based alignment of two audio tracks in Beat Studio. It does not describe the full Lyrekos product.</p>
+              <p class="resource-line"><a href="https://lyrekos.com/" target="_blank" rel="noreferrer">Lyrekos company website</a></p>
+            </div>
+          </div>
+          <figure class="video-figure">
+            <video controls playsinline preload="metadata" poster="assets/images/lyrekos-beat-alignment-feature.jpg">
+              <source src="assets/videos/lyrekos-beat-alignment-feature.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>Feature demo: per-track beat labeling followed by beat-based alignment. This is one component of the Lyrekos consulting work.</figcaption>
+          </figure>
         </div>
-        <figure class="video-figure">
-          <video controls playsinline preload="metadata" poster="assets/images/lyrekos-beat-alignment-feature.jpg">
-            <source src="assets/videos/lyrekos-beat-alignment-feature.mp4" type="video/mp4" />
-            Your browser does not support embedded video.
-          </video>
-          <figcaption>Feature demo: per-track beat labeling followed by beat-based alignment. This is one component of the Lyrekos consulting work.</figcaption>
-        </figure>
       </article>
 
       <article class="project-entry" id="physical-sound">
-        <p class="project-meta">Ongoing research · Advisor: <a href="https://www.graphics.pku.edu.cn/xztd/jgfaculty/lisheng/index.htm" target="_blank" rel="noreferrer">Prof. Sheng Li</a>, Peking University</p>
+        <p class="project-meta">Ongoing research · Jul. 2026–present · Advisor: <a href="https://www.graphics.pku.edu.cn/xztd/jgfaculty/lisheng/index.htm" target="_blank" rel="noreferrer">Prof. Sheng Li</a>, Peking University</p>
         <h2>Physical Sound Synthesis and Cross-Modal Retrieval</h2>
         <div class="content">
           <p class="project-summary">Physical sound synthesis through neural eigenspace prediction and a Rayleigh–Ritz solver.</p>
