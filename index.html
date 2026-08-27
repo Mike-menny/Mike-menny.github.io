@@ -6,7 +6,7 @@
     <meta name="description" content="Qingyang (Mike) Lyu — music intelligence, Transformer models, and quantitative modeling." />
     <meta name="theme-color" content="#ffffff" />
     <title>Qingyang (Mike) Lyu</title>
-    <link rel="stylesheet" href="styles.css?v=20260825a" />
+    <link rel="stylesheet" href="styles.css?v=20260827a" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -84,17 +84,22 @@
             <div class="record-date">Jun.–Aug. 2026</div>
             <div class="publication-copy">
               <h3>Networked Music Performance Consulting · Lyrekos</h3>
-              <p>Consultant to the Lyrekos company on music information retrieval, real-time audio alignment, and audio time stretching for online rehearsal.</p>
+              <p>Consultant to the Lyrekos company on music information retrieval, real-time audio alignment, audio time stretching, and auto accompaniment for online rehearsal.</p>
               <p class="record-links">
                 <a href="music.html#networked-performance">Project details</a>
                 <a href="https://lyrekos.com/" target="_blank" rel="noreferrer">Lyrekos</a>
               </p>
             </div>
-            <div class="publication-media">
+            <div class="publication-media publication-media-dual">
               <button class="demo-preview demo-preview-wide" type="button" data-open-demo="lyrekos-demo-dialog" aria-label="Open the full Lyrekos beat-alignment feature demo">
                 <img src="assets/images/lyrekos-beat-alignment-preview.gif" width="480" height="234" alt="Animated preview of beat labeling and alignment in Lyrekos Beat Studio" />
-                <span class="demo-preview-label"><span aria-hidden="true">▶</span> Open demo</span>
+                <span class="demo-preview-label"><span aria-hidden="true">▶</span> Beat alignment</span>
               </button>
+              <button class="demo-preview demo-preview-wide" type="button" data-open-demo="lyrekos-accompaniment-dialog" aria-label="Open the full Lyrekos auto-accompaniment demo">
+                <img src="assets/images/lyrekos-auto-accompaniment.jpg" width="1280" height="646" alt="Preview of the Lyrekos auto-accompaniment demo" />
+                <span class="demo-preview-label"><span aria-hidden="true">▶</span> Auto accompaniment</span>
+              </button>
+              <p class="media-credit">Audio Source: Mozart's <cite>Voi, Che Sapete</cite>, recorded by Camilla Francesca Bull.<br />Provided for educational/research purposes courtesy of Cambridge Music Technology (<a href="http://www.cambridge-mt.com" target="_blank" rel="noreferrer">www.cambridge-mt.com</a>).</p>
             </div>
           </article>
         </div>
@@ -104,7 +109,7 @@
         <h2 id="projects-title">Research and technical projects</h2>
         <div class="record-list compact-records">
           <article class="record"><div class="record-date">Feb.–Jun. 2026</div><div><h3>Tokenization Strategies for Expressive Piano Performance</h3><p>First-author DAFx-26 demonstration paper. MLP condition encoder and Transformer decoder trained on MAESTRO and ASAP.</p></div></article>
-          <article class="record"><div class="record-date">Jun.–Aug. 2026</div><div><h3>Networked Music Performance Consulting · Lyrekos</h3><p>Consultant to the Lyrekos company. Work includes music information retrieval, real-time audio alignment, and audio time stretching; the Music + AI page shows one beat-alignment feature.</p></div></article>
+          <article class="record"><div class="record-date">Jun.–Aug. 2026</div><div><h3>Networked Music Performance Consulting · Lyrekos</h3><p>Consultant to the Lyrekos company. Work includes music information retrieval, real-time audio alignment, audio time stretching, and auto accompaniment; the demos show two individual features rather than the full Lyrekos product.</p></div></article>
           <article class="record"><div class="record-date">Jul. 2026–present</div><div><h3>Physical Sound Synthesis and Cross-Modal Retrieval</h3><p>Neural eigenspace prediction with a Rayleigh–Ritz solver; contrastive retrieval across material, shape, impact position, and sound. Advisor: <a href="https://www.graphics.pku.edu.cn/xztd/jgfaculty/lisheng/index.htm" target="_blank" rel="noreferrer">Prof. Sheng Li</a>, Peking University.</p></div></article>
           <article class="record"><div class="record-date">Mar. 2026</div><div><h3>Retrieval-Augmented Generation System</h3><p>Hybrid dense-vector and sparse-vector retrieval. <a href="https://github.com/HLXY-420/cs288-sp26-a3" target="_blank" rel="noreferrer">Code</a>.</p></div></article>
           <article class="record"><div class="record-date">Apr. 2025</div><div><h3>Robot Arm Challenge</h3><p>YOLO oriented-bounding-box detection, robotic-arm control, and coordinate transformation.</p></div></article>
@@ -174,6 +179,21 @@
         Your browser does not support embedded video.
       </video>
       <p class="demo-dialog-caption">Beat labeling and beat-based alignment in Beat Studio, shown as one feature from the Lyrekos consulting work.</p>
+    </dialog>
+
+    <dialog class="demo-dialog" id="lyrekos-accompaniment-dialog" aria-labelledby="lyrekos-accompaniment-title">
+      <div class="demo-dialog-header">
+        <div>
+          <p class="eyebrow">Feature demo</p>
+          <h2 id="lyrekos-accompaniment-title">Lyrekos auto accompaniment</h2>
+        </div>
+        <button class="demo-dialog-close" type="button" data-close-demo aria-label="Close demo">Close</button>
+      </div>
+      <video controls playsinline preload="metadata" poster="assets/images/lyrekos-auto-accompaniment.jpg">
+        <source src="assets/videos/lyrekos-auto-accompaniment.mp4" type="video/mp4" />
+        Your browser does not support embedded video.
+      </video>
+      <p class="demo-dialog-caption">Audio Source: Mozart's <cite>Voi, Che Sapete</cite>, recorded by Camilla Francesca Bull.<br />Provided for educational/research purposes courtesy of Cambridge Music Technology (<a href="http://www.cambridge-mt.com" target="_blank" rel="noreferrer">www.cambridge-mt.com</a>).</p>
     </dialog>
 
     <footer class="site-footer"><div class="page-shell">Qingyang (Mike) Lyu · <span data-year></span></div></footer>

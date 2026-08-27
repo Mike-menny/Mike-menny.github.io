@@ -66,6 +66,10 @@ p { margin: 0 0 12px; }
 .publication-copy { min-width: 0; }
 .publication-media { display: grid; gap: 12px; }
 .publication-media-split { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 10px; }
+.publication-media-dual { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 10px; }
+.publication-media .media-credit { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
+.media-credit cite { font-style: italic; }
+.media-credit a { font-size: inherit; }
 .publication-architecture { display: block; color: var(--muted); font-size: 11px; line-height: 1.45; text-decoration: none; }
 .publication-architecture img { width: 100%; min-height: 76px; border: 1px solid var(--line); background: #fff; object-fit: contain; }
 .publication-architecture span { display: block; margin-top: 5px; }
