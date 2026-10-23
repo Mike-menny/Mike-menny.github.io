@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Qingyang Lyu's research in expressive piano generation, networked music performance, and physical sound synthesis." />
+    <meta name="description" content="Qingyang Lyu's research in expressive MIDI generation, audio-supervised modeling, networked music performance, and physical sound synthesis." />
     <meta name="theme-color" content="#ffffff" />
     <title>Music + AI — Qingyang Lyu</title>
     <link rel="stylesheet" href="styles.css?v=20260827a" />
@@ -25,7 +25,7 @@
       <header class="page-header">
         <p class="eyebrow">Current research direction</p>
         <h1>Music intelligence and Transformer models</h1>
-        <p class="summary">Symbolic music representations, expressive piano performance generation, networked music performance, physical sound synthesis, and multimodal retrieval.</p>
+        <p class="summary">Expressive symbolic music generation, audio-supervised modeling, networked music performance, physical sound synthesis, and multimodal retrieval.</p>
         <p class="resource-line music-links">
           <a href="https://youtu.be/u3phIVxGdA0" target="_blank" rel="noreferrer">Music composition</a>
           <a href="https://www.youtube.com/watch?v=dW9jmmp1Yes" target="_blank" rel="noreferrer">Band performance</a>
@@ -33,6 +33,37 @@
           <a href="https://www.bilibili.com/video/BV17C4y1x7cS/" target="_blank" rel="noreferrer">High-school orchestra</a>
         </p>
       </header>
+
+      <article class="project-entry" id="amidi">
+        <div class="project-layout project-layout-with-media">
+          <div>
+            <p class="project-meta">ISMIR 2026 Late-Breaking/Demo · First author · 2026–present</p>
+            <h2>AMIDI: Audio-Supervised Event Modeling for Expressive MIDI Generation</h2>
+            <p class="project-summary">Professional musicians need editable MIDI that retains note-level control over performance expression.</p>
+            <p>Current symbolic music models face two limitations: high-quality expressive MIDI-audio pairs are scarce, and many training targets omit explicit performance controls such as velocity, CC1 dynamics, and sustain pedal. The resulting output may be editable, but it often lacks the continuous, human-like expression retained in audio.</p>
+            <p>AMIDI uses original audio as an additional supervision signal during pretraining. A shared causal MIDI language model learns expressive event sequences while an auxiliary audio objective encourages its hidden states to capture dynamics present in audio. The model is then fine-tuned on higher-quality paired MIDI-audio data, producing editable MIDI with notes, velocity, CC1, and pedal events.</p>
+            <p class="resource-line">
+              <a href="assets/papers/amidi-ismir-2026-lbd.pdf" target="_blank">Paper</a>
+              <a href="assets/papers/amidi-ismir-2026-poster.pdf" target="_blank">Poster</a>
+              <a href="https://temporary-brisk-iron-dzj8a7y.vercel.app/" target="_blank" rel="noreferrer">Interactive demo</a>
+            </p>
+          </div>
+          <div class="project-media">
+            <figure class="figure">
+              <a href="assets/images/amidi-model-architecture.png" target="_blank" aria-label="Open the full AMIDI model architecture">
+                <img src="assets/images/amidi-model-architecture.png" width="2661" height="940" alt="AMIDI architecture with expressive MIDI events, a shared causal MIDI language model, and MIDI and audio readouts" />
+              </a>
+              <figcaption>AMIDI model architecture: a shared 24-layer causal MIDI language model supports an editable MIDI readout and a 50 Hz audio readout conditioned on active notes and performance controls. Open the figure for the full-resolution version.</figcaption>
+            </figure>
+            <figure class="figure">
+              <a href="assets/images/amidi-training-pipeline.png" target="_blank" aria-label="Open the full AMIDI training pipeline">
+                <img src="assets/images/amidi-training-pipeline.png" width="2757" height="879" alt="AMIDI training pipeline with audio-supervised pretraining and paired-data fine-tuning" />
+              </a>
+              <figcaption>Training protocol: audio provides auxiliary supervision during pretraining on an audio pool; both branches then use the same higher-quality paired MIDI-audio data for fine-tuning. Open the figure for the full-resolution version.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
 
       <article class="project-entry" id="tokenization">
         <div class="project-layout project-layout-with-media">
@@ -87,6 +118,12 @@
               </video>
               <figcaption>Feature demo: per-track beat labeling followed by beat-based alignment. This is one component of the Lyrekos consulting work.</figcaption>
             </figure>
+            <figure class="figure">
+              <a href="assets/papers/real-time-automatic-accompaniment-architecture.pdf" target="_blank" rel="noreferrer" aria-label="Open the real-time automatic accompaniment architecture as a vector PDF">
+                <img src="assets/images/real-time-automatic-accompaniment-architecture.png" width="2675" height="925" alt="Architecture of the real-time automatic accompaniment system, from reference and live feature extraction through online DTW alignment, timing-deviation estimation, and real-time stretching" />
+              </a>
+              <figcaption>Real-time automatic accompaniment architecture. Offline reference features and streaming live features are aligned by online DTW; the estimated timing deviation controls the stretching ratio applied to the reference accompaniment in real time. <a href="assets/papers/real-time-automatic-accompaniment-architecture.pdf" target="_blank" rel="noreferrer">Open vector PDF</a>.</figcaption>
+            </figure>
             <figure class="video-figure">
               <video controls playsinline preload="metadata" poster="assets/images/lyrekos-auto-accompaniment.jpg">
                 <source src="assets/videos/lyrekos-auto-accompaniment.mp4" type="video/mp4" />
@@ -99,11 +136,12 @@
       </article>
 
       <article class="project-entry" id="physical-sound">
-        <p class="project-meta">Ongoing research · Jul. 2026–present · Advisor: <a href="https://www.graphics.pku.edu.cn/xztd/jgfaculty/lisheng/index.htm" target="_blank" rel="noreferrer">Prof. Sheng Li</a>, Peking University</p>
+        <p class="project-meta">ICLR 2027 submission · Jun.–Sep. 2026 · Advisor: <a href="https://www.graphics.pku.edu.cn/xztd/jgfaculty/lisheng/index.htm" target="_blank" rel="noreferrer">Prof. Sheng Li</a>, Peking University</p>
         <h2>Physical Sound Synthesis and Cross-Modal Retrieval</h2>
         <div class="content">
           <p class="project-summary">Physical sound synthesis through neural eigenspace prediction and a Rayleigh–Ritz solver.</p>
           <p>The retrieval component uses contrastive learning across material, object shape, impact position, and sound.</p>
+          <p>This work was submitted to ICLR 2027.</p>
         </div>
       </article>
     </main>
